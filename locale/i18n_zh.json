@@ -1,0 +1,16 @@
+{
+  "app_title": "我的应用标题",
+  "main_title": "主标题",
+  "homePage":"主页面",
+  "SimpleLayout":"简单布局",
+  "BubbleTab":"椭圆 Tab",
+  "SliverAppbar":"折叠工具栏",
+  "SamplePage":"示例布局",
+  "CustomScrollView":"自定义滚动布局",
+  "International":"国际化",
+  "ScreenAdapting":"屏幕适配",
+  "ImagePicker":"图片选择",
+  "ImageGallery":"图库",
+  "NativeCallDemo":"原生插件测试"
+
+}

@@ -4,17 +4,39 @@ import 'package:flutter_demo/bubble_tab_indicator/bubble_home.dart';
 import 'package:flutter_demo/sliverbar/SliverAppBar.dart';
 import 'package:flutter_demo/sample_page/sample_page.dart';
 import 'package:flutter_demo/custom_scrollview/custom_scrollview_widgets.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_demo/international/international_widget.dart';
+import 'package:flutter_demo/international/translations_delegate.dart';
+import 'package:flutter_demo/screen_adapting/screen_adapting_widghet.dart';
+import 'package:flutter_demo/image_picker/image_picker.dart';
+import 'package:flutter_demo/image_gallery/gallery_main.dart';
+import 'package:flutter_demo/native_call_demo/natvie_call_widget.dart';
 
 void main() => runApp(MyApp());
-
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
       return new MaterialApp(
-      title: 'Welcome to Flutter',
 
+
+        //国际化
+        localizationsDelegates: [
+          // 注册我们的Delegate
+          //  DemoLocalizationsDelegate(),
+          const TranslationsDelegate(),  // 指向默认的处理翻译逻辑的库（后面会讲）
+          // 本地化的代理类
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+
+        ],
+        supportedLocales: [
+          const Locale('en', 'US'), // 美国英语
+          const Locale('zh', 'CN'), // 中文简体
+          //其它Locales
+        ],
+
+   //   title: 'Welcome to Flutter',
         //注册路由表
         routes:{
           "new_page":(context)=>NewRoute(),
@@ -35,7 +57,9 @@ class HomeScreen extends StatelessWidget {
       new Scaffold(
         // appBar: AppBar(  brightness: Brightness.light, elevation: 3.0 ),
         // backgroundColor:  Colors.blue[500],
-          appBar: new AppBar(title: new Text('this is the flutter demo'),),
+        //  appBar: new AppBar(title: new Text('this is the flutter demo'),),
+          appBar: new AppBar(
+              title: new Text(Translations.of(context).text('main_title'))),
           body:
           //  new ListView3(),        //这个是 通过 ListView.builder 构造 listView
           ListView(
@@ -48,7 +72,7 @@ class HomeScreen extends StatelessWidget {
                 highlightColor: Colors.blue[700],
                 colorBrightness: Brightness.dark,
                 splashColor: Colors.grey,
-                child: Text("简单的布局"),
+                child: Text(Translations.of(context).text('SimpleLayout')),
                 shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
                 onPressed: () {
                   //导航到新路由
@@ -68,7 +92,7 @@ class HomeScreen extends StatelessWidget {
                 highlightColor: Colors.blue[700],
                 colorBrightness: Brightness.dark,
                 splashColor: Colors.grey,
-                child: Text("BubbleTab"),
+                child: Text(Translations.of(context).text('BubbleTab')),
                 shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
                 onPressed: () {
                   //导航到新路由
@@ -85,7 +109,7 @@ class HomeScreen extends StatelessWidget {
                 highlightColor: Colors.blue[700],
                 colorBrightness: Brightness.dark,
                 splashColor: Colors.grey,
-                child: Text("SliverAppbarOne"),
+                child: Text(Translations.of(context).text('SliverAppbar')),
                 shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
                 onPressed: () {
                   //导航到新路由
@@ -103,7 +127,7 @@ class HomeScreen extends StatelessWidget {
                 highlightColor: Colors.blue[700],
                 colorBrightness: Brightness.dark,
                 splashColor: Colors.grey,
-                child: Text("SamplePage"),
+                child: Text(Translations.of(context).text('SamplePage')),
                 shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
                 onPressed: () {
                   //导航到新路由
@@ -120,7 +144,7 @@ class HomeScreen extends StatelessWidget {
                 highlightColor: Colors.blue[700],
                 colorBrightness: Brightness.dark,
                 splashColor: Colors.grey,
-                child: Text("CustomScrollView"),
+                child: Text(Translations.of(context).text('CustomScrollView')),
                 shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
                 onPressed: () {
                   //导航到新路由
@@ -130,6 +154,78 @@ class HomeScreen extends StatelessWidget {
                       }));
                 },
               ),
+
+
+
+              FlatButton(
+                color: Colors.blue,
+                highlightColor: Colors.blue[700],
+                colorBrightness: Brightness.dark,
+                splashColor: Colors.grey,
+                child: Text(Translations.of(context).text('ScreenAdapting')),
+                shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                onPressed: () {
+                  //导航到新路由
+                  Navigator.push( context,
+                      new MaterialPageRoute(builder: (context) {
+                        return new ScreenAdaptingWidget();
+                      }));
+                },
+              ),
+
+
+
+              FlatButton(
+                color: Colors.blue,
+                highlightColor: Colors.blue[700],
+                colorBrightness: Brightness.dark,
+                splashColor: Colors.grey,
+                child: Text(Translations.of(context).text('ImagePicker')),
+                shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                onPressed: () {
+                  //导航到新路由
+                  Navigator.push( context,
+                      new MaterialPageRoute(builder: (context) {
+                        return new ImagePickerWidget();
+                      }));
+                },
+              ),
+
+
+              FlatButton(
+                color: Colors.blue,
+                highlightColor: Colors.blue[700],
+                colorBrightness: Brightness.dark,
+                splashColor: Colors.grey,
+                child: Text(Translations.of(context).text('ImageGallery')),
+                shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                onPressed: () {
+                  //导航到新路由
+                  Navigator.push( context,
+                      new MaterialPageRoute(builder: (context) {
+                        return new GalleryMain();
+                      }));
+                },
+              ),
+
+
+              FlatButton(
+                color: Colors.blue,
+                highlightColor: Colors.blue[700],
+                colorBrightness: Brightness.dark,
+                splashColor: Colors.grey,
+                child: Text(Translations.of(context).text('NativeCallDemo')),
+                shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                onPressed: () {
+                  //导航到新路由
+                  Navigator.push( context,
+                      new MaterialPageRoute(builder: (context) {
+                        return new NativeCallHomePage();
+                      }));
+                },
+              ),
+
+
 
             ],
           )

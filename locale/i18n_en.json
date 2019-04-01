@@ -1,0 +1,21 @@
+{
+  "app_title": "My Application Title",
+  "main_title": "Main Title",
+  "homePage":"Home Page",
+  "SimpleLayout":"SimpleLayout",
+  "BubbleTab":"Bubble Tab",
+  "SliverAppbar":"SliverAppbar",
+  "SamplePage":"SamplePage",
+  "CustomScrollView":"CustomScrollView",
+  "International":"International",
+  "ScreenAdapting":"ScreenAdapting",
+  "ImagePicker":"ImagePicker",
+  "ImageGallery":"Flutter 图库",
+  "NativeCallDemo":"NativeCallDemo"
+
+
+
+
+
+
+}
