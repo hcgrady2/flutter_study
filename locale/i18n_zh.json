@@ -11,6 +11,9 @@
   "ScreenAdapting":"屏幕适配",
   "ImagePicker":"图片选择",
   "ImageGallery":"图库",
-  "NativeCallDemo":"原生插件测试"
+  "NativeCallDemo":"原生插件测试",
+  "LoginAndShare":"登录分享",
+  "CustomPlugin":"自定义插件",
+  "FlutterDB":"数据库测试"
 
 }

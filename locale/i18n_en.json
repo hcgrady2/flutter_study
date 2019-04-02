@@ -11,7 +11,10 @@
   "ScreenAdapting":"ScreenAdapting",
   "ImagePicker":"ImagePicker",
   "ImageGallery":"Flutter 图库",
-  "NativeCallDemo":"NativeCallDemo"
+  "NativeCallDemo":"NativeCallDemo",
+  "LoginAndShare":"LoginAndShare",
+  "CustomPlugin":"CustomPlugin",
+  "FlutterDB":"FlutterDB"
 
 
 

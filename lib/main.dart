@@ -5,13 +5,14 @@ import 'package:flutter_demo/sliverbar/SliverAppBar.dart';
 import 'package:flutter_demo/sample_page/sample_page.dart';
 import 'package:flutter_demo/custom_scrollview/custom_scrollview_widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_demo/international/international_widget.dart';
 import 'package:flutter_demo/international/translations_delegate.dart';
 import 'package:flutter_demo/screen_adapting/screen_adapting_widghet.dart';
 import 'package:flutter_demo/image_picker/image_picker.dart';
 import 'package:flutter_demo/image_gallery/gallery_main.dart';
 import 'package:flutter_demo/native_call_demo/natvie_call_widget.dart';
-
+import 'package:flutter_demo/login_share/login_share_widget.dart';
+import 'package:flutter_demo/custom_plugin/custom_plugin_widget.dart';
+import 'package:flutter_demo/flutter_database/database_widget.dart';
 void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
@@ -221,6 +222,58 @@ class HomeScreen extends StatelessWidget {
                   Navigator.push( context,
                       new MaterialPageRoute(builder: (context) {
                         return new NativeCallHomePage();
+                      }));
+                },
+              ),
+
+
+              FlatButton(
+                color: Colors.blue,
+                highlightColor: Colors.blue[700],
+                colorBrightness: Brightness.dark,
+                splashColor: Colors.grey,
+                child: Text(Translations.of(context).text('LoginAndShare')),
+                shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                onPressed: () {
+                  //导航到新路由
+                  Navigator.push( context,
+                      new MaterialPageRoute(builder: (context) {
+                        return new LoginShareWidget();
+                      }));
+                },
+              ),
+
+
+              FlatButton(
+                color: Colors.blue,
+                highlightColor: Colors.blue[700],
+                colorBrightness: Brightness.dark,
+                splashColor: Colors.grey,
+                child: Text(Translations.of(context).text('CustomPlugin')),
+                shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                onPressed: () {
+                  //导航到新路由
+                  Navigator.push( context,
+                      new MaterialPageRoute(builder: (context) {
+                        return new CostumPluginWidget();
+                      }));
+                },
+              ),
+
+
+
+              FlatButton(
+                color: Colors.blue,
+                highlightColor: Colors.blue[700],
+                colorBrightness: Brightness.dark,
+                splashColor: Colors.grey,
+                child: Text(Translations.of(context).text('FlutterDB')),
+                shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                onPressed: () {
+                  //导航到新路由
+                  Navigator.push( context,
+                      new MaterialPageRoute(builder: (context) {
+                        return new DatabaseWidget();
                       }));
                 },
               ),
