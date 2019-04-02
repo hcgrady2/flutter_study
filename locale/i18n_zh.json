@@ -14,6 +14,6 @@
   "NativeCallDemo":"原生插件测试",
   "LoginAndShare":"登录分享",
   "CustomPlugin":"自定义插件",
-  "FlutterDB":"数据库测试"
+  "FlutterDB":"Flutter 本地存储"
 
 }
