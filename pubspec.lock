@@ -121,6 +121,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_toast_plugin:
+    dependency: "direct main"
+    description:
+      path: "local_plugins\\flutter_toast_plugin"
+      relative: true
+    source: path
+    version: "0.0.1"
   fluwx:
     dependency: "direct main"
     description:

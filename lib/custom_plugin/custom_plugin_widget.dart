@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fluwx/fluwx.dart';
+import 'package:flutter_toast_plugin/flutter_toast_plugin.dart';
 
 
 class CostumPluginWidget extends StatelessWidget {
@@ -10,7 +11,19 @@ class CostumPluginWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(title: new Text("Login&Share")),
-      body: new Text("custom plugin"),
+      body: new Center(
+        child:  new Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            new RaisedButton(
+              child: new Text('ShowNativeToast'),
+            //  onPressed: FlutterToastPlugin.ShowToast("This Flutter Toast", ToastDuration.short),
+              onPressed: () => FlutterToastPlugin.ShowToast('Toast from Flutter', ToastDuration.short),
+            ),
+
+          ],
+        ),
+      ),
     );
   }
 }

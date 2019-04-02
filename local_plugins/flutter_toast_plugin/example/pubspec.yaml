@@ -1,54 +1,24 @@
-name: flutter_demo
-description: A new Flutter application.
-
-
-# The following defines the version and build number for your application.
-# A version number is three numbers separated by dots, like 1.2.43
-# followed by an optional build number separated by a +.
-# Both the version and the builder number may be overridden in flutter
-# build by specifying --build-name and --build-number, respectively.
-# Read more about versioning at semver.org.
-version: 1.0.0+1
+name: flutter_toast_plugin_example
+description: Demonstrates how to use the flutter_toast_plugin plugin.
+publish_to: 'none'
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
-  flutter_localizations:
-    sdk: flutter
-  flutter_swiper: ^1.0.6
   flutter:
     sdk: flutter
-  dio: ^1.0.9
+
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
-  #international
-  intl: ^0.15.7
-
-  # add flutter_ScreenUtil
-  flutter_screenutil: ^0.4.2
-
-  # image_picker
-  image_picker: 0.5.0+9
-  #image_picker: 0.4.10
-
-  # image_manager
-  photo_manager: 0.3.3
-
-  #wechat login
-  fluwx: ^0.6.1
-
-
-  ### 本地插件引用
-  flutter_toast_plugin:
-    path: local_plugins/flutter_toast_plugin
-
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  intl_translation: ^0.17.2
+
+  flutter_toast_plugin:
+    path: ../
 
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec
@@ -60,23 +30,11 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
-  assets:
-       - locale/i18n_en.json
-       - locale/i18n_zh.json
-       - images/sample.jpg
-       - images/bg.jpg
-       - images/avatar2.png
-       - images/nav_close.png
-       - images/publish_chat_box.png
-       - images/publish_work_line.png
-       - images/publish_work_sign.png
-       - images/share_qq.png
-       - images/share_wechat.png
 
   # To add assets to your application, add an assets section, like this:
-   #assets:
-    #- images/sample.jpg
-   # - images/a_dot_ham.jpeg
+  # assets:
+  #  - images/a_dot_burr.jpeg
+  #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
