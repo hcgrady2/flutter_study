@@ -13,6 +13,8 @@ import 'package:flutter_demo/native_call_demo/natvie_call_widget.dart';
 import 'package:flutter_demo/login_share/login_share_widget.dart';
 import 'package:flutter_demo/custom_plugin/custom_plugin_widget.dart';
 import 'package:flutter_demo/flutter_database/database_widget.dart';
+import 'package:flutter_demo/bottom_tab/bottom_tab_widget.dart';
+
 void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
@@ -274,6 +276,25 @@ class HomeScreen extends StatelessWidget {
                   Navigator.push( context,
                       new MaterialPageRoute(builder: (context) {
                         return new DatabaseWidget();
+                      }));
+                },
+              ),
+
+
+
+
+              FlatButton(
+                color: Colors.blue,
+                highlightColor: Colors.blue[700],
+                colorBrightness: Brightness.dark,
+                splashColor: Colors.grey,
+                child: Text(Translations.of(context).text('BottomTab')),
+                shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                onPressed: () {
+                  //导航到新路由
+                  Navigator.push( context,
+                      new MaterialPageRoute(builder: (context) {
+                        return new BottomTabWidget();
                       }));
                 },
               ),
