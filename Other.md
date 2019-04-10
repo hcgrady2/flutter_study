@@ -101,3 +101,58 @@ main.dart 工程中，
       ),
 
 
+
+10、popupwindow
+
+ new PopupMenuButton<String>(
+     icon: Icon(Icons.menu),
+     itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+
+   //new PopupMenuItem<String>( value: 'value01', child: new Text('Item One')),
+   new PopupMenuItem<String>( value: 'value01', child: ListTile( leading: Icon(Icons.check_box), title:new Text('多选' ,style:    new TextStyle(fontSize: 14, color: Color.fromARGB(50, 0, 0, 0))  ,)       )),
+   new PopupMenuDivider(height: 1.0),
+
+
+   new PopupMenuItem<String>( value: 'value02', child:  ListTile( leading: Icon(Icons.file_download), title: new Text('导入身份证' ,style:    new TextStyle(fontSize: 14, color: Color.fromARGB(50, 0, 0, 0))  ,))),
+   new PopupMenuDivider(height: 1.0),
+
+   new PopupMenuItem<String>( value: 'value03', child:  ListTile( leading: Icon(Icons.edit), title: new Text('手动录入' ,style:    new TextStyle(fontSize: 14, color: Color.fromARGB(50, 0, 0, 0))  ,) ) ),
+
+ ],
+ onSelected: (String value) {
+ setState(() {
+ //  _bodyStr = value;
+ });
+ }),
+ 
+ 
+ 
+  new PopupMenuButton(
+          icon: Icon(Icons.menu),
+          onSelected: (String value){
+           setState(() {
+            // _bodyStr = value;
+           });
+         },
+
+         itemBuilder: (BuildContext context) =><PopupMenuItem<String>>[
+
+           new PopupMenuItem(
+               value:"more",
+               child:  ListTile( leading: Icon(Icons.check_box), title: Text('多选'))
+           ),
+
+           new PopupMenuItem(
+               value: "importId",
+               child:  ListTile( leading: Icon(Icons.file_download), title: Text('导入身份证'))
+           ),
+           new PopupMenuItem(
+               value: "Input",
+               child:  ListTile( leading: Icon(Icons.edit), title: Text('手动录入'))
+           )
+
+         ]
+     )
+
+
+

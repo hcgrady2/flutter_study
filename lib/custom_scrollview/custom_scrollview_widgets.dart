@@ -22,6 +22,7 @@ class CustomScrollViewTestRoute extends StatelessWidget {
     return Material(
       child: CustomScrollView(
         slivers: <Widget>[
+
           //AppBar，包含一个导航栏
           SliverAppBar(
             pinned: true,
@@ -34,11 +35,12 @@ class CustomScrollViewTestRoute extends StatelessWidget {
             ),
           ),
 
+
           SliverPadding(
             padding: const EdgeInsets.all(8.0),
             sliver: new SliverGrid( //Grid
               gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2, //Grid按两列显示
+                crossAxisCount: 1, //Grid按两列显示
                 mainAxisSpacing: 10.0,
                 crossAxisSpacing: 10.0,
                 childAspectRatio: 4.0,
@@ -56,6 +58,8 @@ class CustomScrollViewTestRoute extends StatelessWidget {
               ),
             ),
           ),
+
+
           //List
           new SliverFixedExtentList(
             itemExtent: 50.0,
@@ -71,6 +75,8 @@ class CustomScrollViewTestRoute extends StatelessWidget {
                 childCount: 50 //50个列表项
             ),
           ),
+
+
         ],
       ),
     );

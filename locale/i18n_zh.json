@@ -15,6 +15,9 @@
   "LoginAndShare":"登录分享",
   "CustomPlugin":"自定义插件",
   "FlutterDB":"Flutter 本地存储",
-  "BottomTab":"底部导航"
+  "BottomTab":"底部导航",
+  "CustomShape":"自定义绘制图形",
+  "ListView":"ListView",
+  "CheckBoxDemo":"CheckBoxDemo"
 
 }

@@ -8,7 +8,6 @@ class SliverBar extends StatefulWidget{
   }
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return MaterialApp();
   }
   _SliverBarState createState()=>_SliverBarState();
@@ -17,7 +16,6 @@ class _SliverBarState extends State<SliverBar>
 {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return new Scaffold(
       body: GestureDetector(
         child: CustomScrollView(

@@ -15,10 +15,10 @@ class GalleryMain extends StatefulWidget {
 }
 
 const _cacheIosAssetId = "106E99A1-4F6A-45A2-B320-B0AD4A8E8473/L0/001";
-const _cacheAndroidAssetId =
-    "/storage/emulated/0/qqmusic/QQImage/1533629267497.jpg";
+const _cacheAndroidAssetId = "/storage/emulated/0/qqmusic/QQImage/1533629267497.jpg";
 
 class _GalleryMainState extends State<GalleryMain> {
+
   var pathList = <AssetPathEntity>[];
 
   @override
@@ -67,10 +67,11 @@ class _GalleryMainState extends State<GalleryMain> {
           ),
         ],
       ),
-      body: new ListView.builder(
-        itemBuilder: _buildItem,
-        itemCount: pathList.length,
-      ),
+      body:
+
+    //  new ListView.builder(itemBuilder: _buildItem, itemCount: pathList.length,),
+      new ListView.builder(itemBuilder: _buildItem, itemCount: pathList.length,),
+
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.refresh),
         tooltip: "get all asset list",

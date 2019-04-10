@@ -5,6 +5,8 @@ import 'package:flutter_demo/bottom_tab/tab_bar_demo.dart';
 import 'package:flutter_demo/bottom_tab/custom_tab.dart';
 import 'package:flutter_demo/bottom_tab/custom_tab_2.dart';
 import 'package:flutter_demo/bottom_tab/CustomTabThree.dart';
+import 'package:flutter_demo/bottom_tab/custom_tab_four.dart';
+import 'custom_tab_five.dart';
 
 class BottomTabWidget extends StatelessWidget {
 
@@ -88,6 +90,32 @@ class BottomTabContent extends StatelessWidget{
                     }));
               },
             ),
+
+
+            new RaisedButton(
+              child: new Text('CustomFour'),
+              onPressed: () {
+                //导航到新路由
+                Navigator.push( context,
+                    new MaterialPageRoute(builder: (context) {
+                      return new CustomTabFour();
+                    }));
+              },
+            ),
+
+
+            new RaisedButton(
+              child: new Text('CustomFive'),
+              onPressed: () {
+                //导航到新路由
+                Navigator.push( context,
+                    new MaterialPageRoute(builder: (context) {
+                      return new CustomTabFive();
+                    }));
+              },
+            ),
+
+
 
 
           ],

@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/checkbox/checkbox_widget.dart';
+import 'package:flutter_demo/list_view/list_view_demo.dart';
+import 'package:flutter_demo/list_view/list_view_widget.dart';
+import 'package:flutter_demo/list_view/local_scroll_list.dart';
 import 'package:flutter_demo/simple_layout/simple_layout_widget.dart';
 import 'package:flutter_demo/bubble_tab_indicator/bubble_home.dart';
 import 'package:flutter_demo/sliverbar/SliverAppBar.dart';
@@ -14,6 +18,7 @@ import 'package:flutter_demo/login_share/login_share_widget.dart';
 import 'package:flutter_demo/custom_plugin/custom_plugin_widget.dart';
 import 'package:flutter_demo/flutter_database/database_widget.dart';
 import 'package:flutter_demo/bottom_tab/bottom_tab_widget.dart';
+import 'package:flutter_demo/custom_drawshape/custom_shape.dart';
 
 void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
@@ -61,8 +66,9 @@ class HomeScreen extends StatelessWidget {
         // appBar: AppBar(  brightness: Brightness.light, elevation: 3.0 ),
         // backgroundColor:  Colors.blue[500],
         //  appBar: new AppBar(title: new Text('this is the flutter demo'),),
-          appBar: new AppBar(
-              title: new Text(Translations.of(context).text('main_title'))),
+
+          appBar: new AppBar(title: new Text(Translations.of(context).text('main_title'))),
+
           body:
           //  new ListView3(),        //这个是 通过 ListView.builder 构造 listView
           ListView(
@@ -295,6 +301,95 @@ class HomeScreen extends StatelessWidget {
                   Navigator.push( context,
                       new MaterialPageRoute(builder: (context) {
                         return new BottomTabWidget();
+                      }));
+                },
+              ),
+
+
+
+              FlatButton(
+                color: Colors.blue,
+                highlightColor: Colors.blue[700],
+                colorBrightness: Brightness.dark,
+                splashColor: Colors.grey,
+                child: Text(Translations.of(context).text('CustomShape')),
+                shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                onPressed: () {
+                  //导航到新路由
+                  Navigator.push( context,
+                      new MaterialPageRoute(builder: (context) {
+                        return new CustomShapeWidget();
+                      }));
+                },
+              ),
+
+              FlatButton(
+                color: Colors.blue,
+                highlightColor: Colors.blue[700],
+                colorBrightness: Brightness.dark,
+                splashColor: Colors.grey,
+                child: Text(Translations.of(context).text('ListView')),
+                shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                onPressed: () {
+                  //导航到新路由
+                  Navigator.push( context,
+                      new MaterialPageRoute(builder: (context) {
+                        return new SimpleListView();
+                      }));
+                },
+              ),
+
+
+              FlatButton(
+                color: Colors.blue,
+                highlightColor: Colors.blue[700],
+                colorBrightness: Brightness.dark,
+                splashColor: Colors.grey,
+                child: Text(Translations.of(context).text('ListView')),
+                shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                onPressed: () {
+                  //导航到新路由
+                  Navigator.push( context,
+                      new MaterialPageRoute(builder: (context) {
+                        return new DoubanTheatersWidget();
+                      }));
+                },
+              ),
+
+
+
+              FlatButton(
+                color: Colors.blue,
+                highlightColor: Colors.blue[700],
+                colorBrightness: Brightness.dark,
+                splashColor: Colors.grey,
+                child: Text("局部滚动List"),
+                shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                onPressed: () {
+                  //导航到新路由
+                  Navigator.push( context,
+                      new MaterialPageRoute(builder: (context) {
+                        return new LocalScrollListView();
+                      }));
+                },
+              ),
+
+
+
+
+
+              FlatButton(
+                color: Colors.blue,
+                highlightColor: Colors.blue[700],
+                colorBrightness: Brightness.dark,
+                splashColor: Colors.grey,
+                child: Text(Translations.of(context).text('CheckBoxDemo')),
+                shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                onPressed: () {
+                  //导航到新路由
+                  Navigator.push( context,
+                      new MaterialPageRoute(builder: (context) {
+                        return new SimpleCheckBox();
                       }));
                 },
               ),

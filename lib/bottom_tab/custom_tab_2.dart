@@ -31,8 +31,6 @@ class _CustomTabTwoState extends State<CustomTabTwo>  with SingleTickerProviderS
     super.dispose();
   }
 
-
-
   ///BottomAppBar: 完全可以自定义
   @override
   Widget build(BuildContext context) {
@@ -85,10 +83,7 @@ class _CustomTabTwoState extends State<CustomTabTwo>  with SingleTickerProviderS
           color: Colors.white,
           //这个 shape 是 底部导航的压缩效果
           //shape: CircularNotchedRectangleDemo(),
-
-          shape: CircularNotchedRectangle(),
-
-
+          shape: CircularNotchedRectangleDemo(),
           //child: tabs(),
           //阴影效果
           elevation: 50,
@@ -150,6 +145,9 @@ class _CustomTabTwoState extends State<CustomTabTwo>  with SingleTickerProviderS
 
 
 
+
+
+
 class CircularNotchedRectangleDemo extends NotchedShape {
   ///
   const CircularNotchedRectangleDemo();
@@ -171,23 +169,23 @@ class CircularNotchedRectangleDemo extends NotchedShape {
     if (guest == null || !host.overlaps(guest))
       return Path()..addRect(host);
 
-    // The guest's shape is a circle bounded by the guest rectangle.
-    // So the guest's radius is half the guest width.
     final double notchRadius = guest.width / 2.0;
+    print("圆形半径");
+    print(notchRadius);
 
-    // We build a path for the notch from 3 segments:
-    // Segment A - a Bezier curve from the host's top edge to segment B.
-    // Segment B - an arc with radius notchRadius.
-    // Segment C - a Bezier curve from segment B back to the host's top edge.
-    //
-    // A detailed explanation and the derivation of the formulas below is
-    // available at: https://goo.gl/Ufzrqn
+    print("底部导航左上角");
+    print(host.left);
+    print(host.top);
 
-    const double s1 = 15.0;
-    const double s2 = 1.0;
+    print("底部导航左下角");
+    print(host.left);
+    print(host.bottom);
+
+
+
 
     final double r = notchRadius;
-    final double a = -1.0 * r - s2;
+    final double a = -1.0 * r;
     final double b = host.top - guest.center.dy;
 
     final double n2 = math.sqrt(b * b * r * r * (a * a + b * b - r * r));
@@ -207,7 +205,7 @@ class CircularNotchedRectangleDemo extends NotchedShape {
     final List<Offset> p = List<Offset>(6);
 
     // p0, p1, and p2 are the control points for segment A.
-    p[0] = Offset(a - s1, b);
+    p[0] = Offset(a, b);
     p[1] = Offset(a, b);
     final double cmp = b < 0 ? -1.0 : 1.0;
   //  p[2] = cmp * p2yA > cmp * p2yB ? Offset(p2xA, p2yA) : Offset(p2xB, p2yB);
@@ -230,7 +228,8 @@ class CircularNotchedRectangleDemo extends NotchedShape {
       ..moveTo(host.left, host.top)
       ..lineTo(p[0].dx, p[0].dy)
       //这里绘制曲线
-      ..quadraticBezierTo(p[1].dx, p[1].dy, p[2].dx, -100)
+      ..quadraticBezierTo(p[1].dx, p[1].dy, p[2].dx, p[2].dy)
+
       ..arcToPoint(
         p[3],
         radius: Radius.circular(notchRadius),
