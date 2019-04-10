@@ -87,6 +87,9 @@ flutter:
        - images/share_qq.png
        - images/share_wechat.png
        - images/id_card.png
+       - images/icon_qq.png
+       - images/icon_wechat.png
+       - images/icon_wechat_moments.png
 
        - assets/icon/icon_one.svg
        - assets/icon/icon_two.svg

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/bottom_navigation/bottom_navigation_main.dart';
 import 'package:flutter_demo/checkbox/checkbox_widget.dart';
 import 'package:flutter_demo/list_view/list_view_demo.dart';
 import 'package:flutter_demo/list_view/list_view_widget.dart';
@@ -393,6 +394,26 @@ class HomeScreen extends StatelessWidget {
                       }));
                 },
               ),
+
+
+
+              FlatButton(
+                color: Colors.blue,
+                highlightColor: Colors.blue[700],
+                colorBrightness: Brightness.dark,
+                splashColor: Colors.grey,
+                child: Text("BottomNavigation"),
+                shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                onPressed: () {
+                  //导航到新路由
+                  Navigator.push( context,
+                      new MaterialPageRoute(builder: (context) {
+                        return new BottomNavigation();
+                      }));
+                },
+              ),
+
+
 
 
 
