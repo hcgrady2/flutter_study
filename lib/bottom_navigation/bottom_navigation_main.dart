@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/bottom_navigation/ace_bottom_navigation_bar.dart';
-import 'package:meta/meta.dart';
 
 
 class BottomNavigation extends StatefulWidget{
@@ -61,13 +60,13 @@ class BottomNavigationState extends State<BottomNavigation> {
               items: [
 
 
-    /*            NavigationItemBean(
+                NavigationItemBean(
                     textStr: 'Home',
                     textUnSelectedColor: Colors.green,
                     textSelectedColor: Colors.indigo,
                     image: AssetImage('images/icon_qq.png'),
                     imageSelected:
-                    AssetImage('images/icon_wechat_moments.png')),*/
+                    AssetImage('images/icon_wechat_moments.png')),
 
 
                 NavigationItemBean(
@@ -93,7 +92,7 @@ class BottomNavigationState extends State<BottomNavigation> {
                     iconUnSelectedColor: Colors.blue,
                     iconSelectedColor: Colors.pinkAccent),
 
-              //  NavigationItemBean(textStr: 'QQ', image: AssetImage('images/icon_qq.png'))
+                NavigationItemBean(textStr: 'QQ', image: AssetImage('images/icon_qq.png'))
 
               ],
 

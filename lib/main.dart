@@ -8,6 +8,7 @@ import 'package:flutter_demo/custom_popupmenu/custom_popupmenu_demo.dart';
 import 'package:flutter_demo/list_view/list_view_demo.dart';
 import 'package:flutter_demo/list_view/list_view_widget.dart';
 import 'package:flutter_demo/list_view/local_scroll_list.dart';
+import 'package:flutter_demo/overlay_deme/overlay_widget.dart';
 import 'package:flutter_demo/simple_layout/simple_layout_widget.dart';
 import 'package:flutter_demo/bubble_tab_indicator/bubble_home.dart';
 import 'package:flutter_demo/sliverbar/SliverAppBar.dart';
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
       return new MaterialApp(
+        theme: new ThemeData(dialogBackgroundColor: Colors.redAccent),
 
 
         //国际化
@@ -474,6 +476,25 @@ class HomeScreen extends StatelessWidget {
                       new MaterialPageRoute(builder: (context) {
                         //  return new ModalBottomSheetDemo();
                         return new CustomDialogDemo();
+
+                      }));
+                },
+              ),
+
+
+              FlatButton(
+                color: Colors.blue,
+                highlightColor: Colors.blue[700],
+                colorBrightness: Brightness.dark,
+                splashColor: Colors.grey,
+                child: Text("Overlay"),
+                shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                onPressed: () {
+                  //导航到新路由
+                  Navigator.push( context,
+                      new MaterialPageRoute(builder: (context) {
+                        //  return new ModalBottomSheetDemo();
+                        return new OverlayWidget();
 
                       }));
                 },

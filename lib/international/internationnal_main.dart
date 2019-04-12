@@ -5,7 +5,10 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_demo/international/translations_delegate.dart';
 
 void main() {
-  runApp(new MaterialApp(
+  runApp
+    (
+
+      new MaterialApp(
 
     theme: new ThemeData(
       primarySwatch: Colors.blue,
@@ -30,7 +33,10 @@ void main() {
     ],
 
     home: new MyApp(),
-  ));
+  )
+
+
+  );
 
 }
 

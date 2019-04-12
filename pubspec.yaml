@@ -90,6 +90,7 @@ flutter:
        - images/icon_qq.png
        - images/icon_wechat.png
        - images/icon_wechat_moments.png
+       - images/dialog_outline.png
 
        - assets/icon/icon_one.svg
        - assets/icon/icon_two.svg
