@@ -15,7 +15,6 @@ class CustomDialogDemo extends StatefulWidget {
 class _CustomDialogDemoState extends State<CustomDialogDemo> {
 
 
-
   @override
   Widget build(BuildContext context) {
 
@@ -67,6 +66,7 @@ class LoadingDialog extends Dialog {
 
   @override
   Widget build(BuildContext context) {
+
     _dismissDialog() {
       if (dismissCallback != null) {
         dismissCallback();

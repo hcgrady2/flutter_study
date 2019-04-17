@@ -5,7 +5,6 @@ import 'package:flutter_demo/bottom_navigation/ace_bottom_navigation_bar.dart';
 class BottomNavigation extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return  new BottomNavigationState() ;
   }
 
@@ -61,15 +60,29 @@ class BottomNavigationState extends State<BottomNavigation> {
 
 
                 NavigationItemBean(
+
+                    selected: null,
+                    isProtruding: null,
+                    type: null,
+                    icon: null,
+                    iconSelectedColor: null,
+                    iconUnSelectedColor: null,
+
                     textStr: 'Home',
                     textUnSelectedColor: Colors.green,
                     textSelectedColor: Colors.indigo,
                     image: AssetImage('images/icon_qq.png'),
                     imageSelected:
-                    AssetImage('images/icon_wechat_moments.png')),
+                    AssetImage('images/icon_wechat_moments.png'),),
 
 
                 NavigationItemBean(
+                    image: null,
+                    imageSelected: null,
+                    selected: null,
+                    isProtruding: null,
+                    type: null,
+
                     textStr: 'Book',
                     textUnSelectedColor: Colors.green,
                     textSelectedColor: Colors.orange,
@@ -80,6 +93,18 @@ class BottomNavigationState extends State<BottomNavigation> {
 
 
                 NavigationItemBean(
+
+
+                    imageSelected: null,
+                    selected: null,
+                    isProtruding: null,
+                    type: null,
+                   textSelectedColor: null,
+                    textUnSelectedColor: null,
+                    icon: null,
+                    iconSelectedColor: null,
+                    iconUnSelectedColor: null,
+
                     textStr: 'WeChat',
                    // image: AssetImage('images/icon_wechat.png')),
                     image: AssetImage('images/icon_wechat.png')),
@@ -87,12 +112,25 @@ class BottomNavigationState extends State<BottomNavigation> {
 
 
                 NavigationItemBean(
+
+
+                    imageSelected: null,
+                    selected: null,
+                    isProtruding: null,
+                    type: null,
+                    textSelectedColor: null,
+                    textUnSelectedColor: null,
+                    image:  null,
+
                     textStr: 'Time',
                     icon: Icons.schedule,
                     iconUnSelectedColor: Colors.blue,
                     iconSelectedColor: Colors.pinkAccent),
 
-                NavigationItemBean(textStr: 'QQ', image: AssetImage('images/icon_qq.png'))
+          //      NavigationItemBean(textStr: 'QQ', image: AssetImage('images/icon_qq.png'))
+
+
+
 
               ],
 

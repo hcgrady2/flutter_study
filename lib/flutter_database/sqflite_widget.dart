@@ -7,6 +7,28 @@ import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
 
+/*
+  flutter 数据库 存储
+
+      ->getCurrentDatabase(获取数据库对象)
+        -> init(初始化，主要是 openDatabase)
+
+     isTableExits:判断表是否存在  await getCurrentDatabase() 判断结果
+
+
+
+    -> getDatabase-()：打开初始化表结构的数据库
+       open() 打开数据库,打开数据库之前建表
+          ->  prepare() ：表不存在就创建表
+
+
+    插入：
+    insert-> getDatabase()->open-> getCurrentDatabase
+
+    getUserInfo
+
+
+ */
 
 class SqfliteWidget extends StatelessWidget {
   const SqfliteWidget();
@@ -34,7 +56,6 @@ class SqfliteContent extends StatelessWidget {
 
   Future<Database> get _localFile async {
     final path = await _dbPath;
-
     Database database = await openDatabase(path, version: 1,
         onCreate: (Database db, int version) async {
           await db.execute(

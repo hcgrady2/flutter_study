@@ -19,7 +19,7 @@ dependencies:
   flutter_swiper: ^1.0.6
   flutter:
     sdk: flutter
-  dio: ^1.0.9
+  ## dio: ^1.0.9
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
@@ -51,12 +51,45 @@ dependencies:
   #http
   http: ^0.12.0+2
 
-  ### 本地插件引用
-  flutter_toast_plugin:
-    path: local_plugins/flutter_toast_plugin
 
   ### 使用 svg
   flutter_svg: ^0.12.4
+
+  ### 网络检查
+  connectivity: ^0.4.2+2
+
+  ### 网络请求
+  dio: ^2.1.2
+
+
+  ### event_bus,先不使用 event_bus，自己实现一个简单的测试
+ # event_bus: ^1.1.0
+
+  ### 类似 event_bus
+  flutter_redux: ^0.5.3
+  ### 链式管理
+  rxdart: ^0.21.0
+
+
+
+  ### 状态栏相关
+  flutter_statusbar: ^0.0.1
+
+  ### 权限
+  permission_handler: ^3.0.0
+
+  ### 缓存管理
+  flutter_cache_manager: ^0.3.2
+
+  ### 动画及加载器
+  flutter_spinkit: "^3.1.0"
+
+
+
+
+  ### 本地插件引用
+  flutter_toast_plugin:
+    path: local_plugins/flutter_toast_plugin
 
 
 dev_dependencies:
