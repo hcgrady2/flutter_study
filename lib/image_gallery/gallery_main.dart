@@ -21,6 +21,7 @@ class _GalleryMainState extends State<GalleryMain> {
 
   var pathList = <AssetPathEntity>[];
 
+  var ablumList ;
   @override
   void initState() {
     super.initState();
@@ -41,6 +42,7 @@ class _GalleryMainState extends State<GalleryMain> {
 
   @override
   Widget build(BuildContext context) {
+
     return new Scaffold(
       appBar: new AppBar(
         title: const Text('Plugin example app'),
@@ -70,26 +72,204 @@ class _GalleryMainState extends State<GalleryMain> {
       body:
 
     //  new ListView.builder(itemBuilder: _buildItem, itemCount: pathList.length,),
+
+      /**
+       * ListView 布局
+       */
       new ListView.builder(itemBuilder: _buildItem, itemCount: pathList.length,),
+
+
 
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.refresh),
         tooltip: "get all asset list",
-        onPressed: getImages,
+       // onPressed: getImages,
+        onPressed: _onlyImage,
       ),
     );
   }
 
   Widget _buildItem(BuildContext context, int index) {
     var data = pathList[index];
-    return _buildWithData(data);
+    return _buildWithData(data,index);
+    //return _buildHasPreviewItem(context,index);
   }
 
-  Widget _buildWithData(AssetPathEntity data) {
-    return GestureDetector(
-      child: ListTile(
-        title: Text(data.name),
-      ),
+
+  /**
+   * 每个 item
+   */
+
+
+  var row = Container(
+
+    margin: EdgeInsets.all(4.0),
+    child: Row(
+      children: <Widget>[
+        ClipRRect(
+          borderRadius: BorderRadius.circular(4.0),
+          //new Image.asset("images/share_wechat.png"),
+          child: Image.asset(
+            "images/share_wechat.png",
+            width: 100.0, height: 80.0,
+            fit: BoxFit.fill,
+          ),
+
+        ),
+        Expanded(
+            child: Container(
+              alignment: Alignment.centerLeft,
+              margin: EdgeInsets.only(left: 8.0),
+              height: 80.0,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    "title",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20.0,
+                    ),
+                    maxLines: 1,
+                  ),
+                  Text(
+                    "subTitle",
+                    style: TextStyle(
+                        fontSize: 16.0
+                    ),
+                  ),
+
+                ],
+              ),
+            )
+        )
+
+
+      ],
+    ),
+  );
+
+
+
+  //这个就可以实现返回相册数目
+  Widget  _buildWithData(AssetPathEntity data,int index)  {
+    bool isPhoto = false;
+
+    Widget widget = FutureBuilder<List<AssetEntity>>(
+      future: data.assetList,
+      builder: (BuildContext context, AsyncSnapshot<List<AssetEntity>> snapshot) {
+        var assetList = snapshot.data;
+        if (assetList == null || assetList.isEmpty) {
+          return Container(
+            child: Text('loading'),
+          );
+        }
+        AssetEntity asset = assetList[0];
+
+        AssetEntity entity = assetList[0];
+        Widget leftP;
+
+     //   print("文件夹名字");
+       // print(data.name);
+       // print("测试图片名字");
+       // print(entity.id);
+       // print("测试长度");
+       // print(assetList.length);
+
+
+        if( entity.id.endsWith("jpg") || entity.id.endsWith("png")){
+          isPhoto = true;
+          print("left p is ture");
+           leftP =  buildPhtoThumb(context,entity);
+        }
+
+     //   entity.thumbDataWithSize(150, 150);
+
+      //  return  ListTile(title: Text(assetList.length.toString()),);
+
+        return  Container(
+          color: Colors.white,
+          margin: EdgeInsets.all(4.0),
+          child: Row(
+            children: <Widget>[
+              ClipRRect(
+                borderRadius: BorderRadius.circular(4.0),
+                //new Image.asset("images/share_wechat.png"),
+                //左边的缩略图
+              //  child: buildPhtoThumb(entity),
+                child:
+                    !isPhoto?
+               new Image.asset("images/share_wechat.png"):
+                  //  buildPhtoThumb(entity)
+                  //  Image.asset("images/share_wechat.png")
+                   leftP,
+/*
+
+               //左边的缩略图
+                InkWell(
+                  onTap: (){
+                    print("item photo tap");
+
+                   // var list =  data.assetList;
+                    var list =  assetList;
+                    print(
+                        "open gallery is:${data.name} , count : ${list.length} , list = $list");
+                    var page = PhotoPage(
+                      pathEntity: data,
+                      photos: list,
+                    );
+                    Navigator.of(context).push(MaterialPageRoute(builder: (ctx) => page));
+
+
+                  },
+                  child: Image.asset("images/share_wechat.png", width: 100.0, height: 80.0, fit: BoxFit.fill,),
+
+                )
+*/
+              ),
+              Expanded(
+                  child: Container(
+                    alignment: Alignment.centerLeft,
+                    margin: EdgeInsets.only(left: 8.0),
+                    height: 80.0,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          data.name,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20.0,
+                          ),
+                          maxLines: 1,
+                        ),
+                        Text(
+                          assetList.length.toString(),
+                          style: TextStyle(
+                              fontSize: 16.0
+                          ),
+                        ),
+
+                      ],
+                    ),
+                  )
+              )
+
+
+            ],
+          ),
+        );
+
+
+
+      },
+    );
+
+
+    Widget ges = GestureDetector(
+      child: widget,
       onTap: () async {
         var list = await data.assetList;
         print(
@@ -99,6 +279,29 @@ class _GalleryMainState extends State<GalleryMain> {
           photos: list,
         );
         Navigator.of(context).push(MaterialPageRoute(builder: (ctx) => page));
+      },
+    );
+     return ges;
+  }
+
+
+  Widget buildPhtoThumb(BuildContext context, AssetEntity entity ) {
+   return FutureBuilder<Uint8List>(
+      future: entity.thumbDataWithSize(150, 150),
+      builder: (BuildContext context, AsyncSnapshot<Uint8List> snapshot) {
+        if (snapshot.connectionState == ConnectionState.done &&
+            snapshot.data != null) {
+          return   Image.memory(
+            snapshot.data,
+            fit: BoxFit.cover,
+            width:80,
+            height: 80,
+          );
+
+        }
+        return Center(
+          child: Text('loading...'),
+        );
       },
     );
   }
@@ -120,6 +323,7 @@ class _GalleryMainState extends State<GalleryMain> {
         return _buildPreview(asset);
       },
     );
+
     return widget;
   }
 
@@ -135,6 +339,7 @@ class _GalleryMainState extends State<GalleryMain> {
     );
   }
 
+
   void _openSetting() {
     PhotoManager.openSetting();
   }
@@ -147,10 +352,19 @@ class _GalleryMainState extends State<GalleryMain> {
     }
 
     print("wait scan");
-    List<AssetPathEntity> list =
-        await PhotoManager.getAssetPathList(hasVideo: true);
+    List<AssetPathEntity> list = await PhotoManager.getAssetPathList(hasVideo: false);
+
+    List<int> pl = new List(list.length);
+
+    for(int i = 0; i < list.length; i ++){
+     var tempList   =  await list[i].assetList;
+     pl[i] = tempList.length;
+    }
+
+    ablumList = pl;
 
     pathList.clear();
+    //pathList 保存相册中 list 集合
     pathList.addAll(list);
     setState(() {});
 

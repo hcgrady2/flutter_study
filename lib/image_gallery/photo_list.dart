@@ -74,7 +74,15 @@ class _PhotoListState extends State<PhotoList> {
         );
       },
     );
+
+
+
+
+
+
   }
+
+
 
   showInfo(AssetEntity entity) async {
     if (entity.type == AssetType.video) {

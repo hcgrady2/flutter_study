@@ -15,8 +15,6 @@ class _NativeCallHomePageState extends State<NativeCallHomePage> {
  // static const platform = const MethodChannel('nativecall.flutter.io/battery');
   MethodChannel platform  = const MethodChannel('nativecall.flutter.io/battery');
 
-
-
   // EventChanel 方式
   static const EventChannel eventChannel = const EventChannel('samples.flutter.io/charging');
 
@@ -135,8 +133,6 @@ class _NativeCallHomePageState extends State<NativeCallHomePage> {
               onPressed: _getBatteryLevel,
             ),
             new Text(_value_from_event_chanel),
-
-
 
           ],
         ),

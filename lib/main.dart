@@ -5,6 +5,7 @@ import 'package:flutter_demo/bottom_sheet/bottom_sheet_widget.dart';
 import 'package:flutter_demo/checkbox/checkbox_widget.dart';
 import 'package:flutter_demo/custom_dialog/custom_dialog.dart';
 import 'package:flutter_demo/custom_popupmenu/custom_popupmenu_demo.dart';
+import 'package:flutter_demo/girdView/girdviewWidget.dart';
 import 'package:flutter_demo/list_view/list_view_demo.dart';
 import 'package:flutter_demo/list_view/list_view_widget.dart';
 import 'package:flutter_demo/list_view/local_scroll_list.dart';
@@ -499,6 +500,28 @@ class HomeScreen extends StatelessWidget {
                       }));
                 },
               ),
+
+
+              FlatButton(
+                color: Colors.blue,
+                highlightColor: Colors.blue[700],
+                colorBrightness: Brightness.dark,
+                splashColor: Colors.grey,
+                child: Text("GirdView"),
+                shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                onPressed: () {
+                  //导航到新路由
+                  Navigator.push( context,
+                      new MaterialPageRoute(builder: (context) {
+                        //  return new ModalBottomSheetDemo();
+                        return new GirdViewDemo();
+
+                      }));
+                },
+              ),
+
+
+
 
 
 

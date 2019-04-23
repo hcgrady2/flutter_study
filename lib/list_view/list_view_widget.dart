@@ -46,6 +46,8 @@ class SimpleListView extends StatelessWidget {
           ),
 
 
+
+
         ),
 
 
@@ -58,6 +60,57 @@ class SimpleListView extends StatelessWidget {
    * 抽取item项
    */
   Widget _getContainer(String id, IconData icon) {
+
+
+    var row = Container(
+      margin: EdgeInsets.all(4.0),
+      child: Row(
+        children: <Widget>[
+          ClipRRect(
+            borderRadius: BorderRadius.circular(4.0),
+            child: Image.asset(
+              "images/image.jpg",
+              width: 100.0, height: 80.0,
+              fit: BoxFit.fill,
+            ),
+
+          ),
+          Expanded(
+              child: Container(
+                margin: EdgeInsets.only(left: 8.0),
+                height: 80.0,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      "title",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20.0,
+                      ),
+                      maxLines: 1,
+                    ),
+                    Text(
+                      "subTitle",
+                      style: TextStyle(
+                          fontSize: 16.0
+                      ),
+                    ),
+
+                  ],
+                ),
+              )
+          )
+
+
+        ],
+      ),
+    );
+
+
+
+
+
     return new Container(
       width: 160.0,
 //      ListTile
@@ -72,6 +125,12 @@ class SimpleListView extends StatelessWidget {
         subtitle:new Text("我是subtitle") ,
       ),
 
+
+
+
+
     );
   }
+
+
 }

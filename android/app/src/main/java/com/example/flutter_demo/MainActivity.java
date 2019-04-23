@@ -69,6 +69,8 @@ public class MainActivity extends FlutterActivity {
             }
     );
 
+
+
   }
 
   private BroadcastReceiver createChargingStateChangeReceiver(final EventChannel.EventSink events) {
@@ -112,6 +114,8 @@ public class MainActivity extends FlutterActivity {
 
   }
 
+
+
   //调用的原生方法
   private int getBatteryLevel() {
     int batteryLevel = -1;
@@ -127,4 +131,6 @@ public class MainActivity extends FlutterActivity {
 
     return batteryLevel;
   }
+
+
 }
